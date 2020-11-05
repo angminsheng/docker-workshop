@@ -1,0 +1,15 @@
+version: '3'
+services:
+  node-application:
+    build: .
+    ports:
+      - "8090:8090"
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+  test-container:
+    build: .
+    command: ["npm", "run", "test"]
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
