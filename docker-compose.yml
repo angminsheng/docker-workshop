@@ -1,15 +1,21 @@
 version: '3'
 services:
+  redis-server:
+    image: 'redis'
   node-application:
-    build: .
+    build:
+      context: ./
+      target: dev
     ports:
       - "8090:8090"
     volumes:
       - /usr/src/app/node_modules
       - .:/usr/src/app
+    command:
+      ['npm', 'start']
   test-container:
     build: .
-    command: ["npm", "run", "test"]
+    command: ['npm', 'test']
     volumes:
       - /usr/src/app/node_modules
       - .:/usr/src/app

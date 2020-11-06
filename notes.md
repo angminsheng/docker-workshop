@@ -38,3 +38,9 @@ write a unit test
 create a docker container that run the unit test
 
 using jest --watchAll to run the test as we make changes to our code
+
+Feedback
+
+having separate branch for different stages of the app
+
+having a multi stage build that run the test before creating a production image
